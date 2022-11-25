@@ -28,14 +28,15 @@ const app = async () => {
             let input =  prompt("> ")
             command = input.split(" ") // Create array with input words
     
-            const [apiType, cmdType, ...rest] = command
+            const [apiType, cmdType, ...rest] = command // destructure user input command
     
+            // User selected API exists
             if(apiType in API) {
                 if(cmdType==='list') await list(rest, API[apiType])
                 else if(cmdType==='filter') await filter(rest, API[apiType])
                 else if(cmdType==='sort-asc' || cmdType === 'sort-desc') {
-                    const order = cmdType.split("-")[1]
-                    await mySort( order ,rest, API[apiType])
+                    const order = cmdType.split("-")[1] // from "sort-asc" get "asc" (or "desc")
+                    await mySort(order, rest, API[apiType])
                 } 
                 else {
                     console.log(`<${cmdType}> command doesn't exist. Try again!`)  
@@ -46,7 +47,6 @@ const app = async () => {
                 console.log(`<${apiType}> API doesn't exist`)
                 continue
             }
-    
     
             let programInput = prompt("Should we continue? (END to stop | ANY other input to continue): ")
             if(programInput.toLowerCase() === "end") break
