@@ -1,4 +1,4 @@
-const fetchApi = require("./api")
+import fetchApi from './api.js'
 
 // Function to sort data by property
 const mySort = async (order, command, apiType) => {
@@ -18,4 +18,4 @@ const mySort = async (order, command, apiType) => {
     }
 }
 
-module.exports = mySort
+export default mySort

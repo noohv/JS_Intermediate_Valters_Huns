@@ -1,4 +1,4 @@
-const fetchApi = require("./api")
+import fetchApi from './api.js'
 
 // Function for filter command
 const filter = async (command, apiType) => {
@@ -29,4 +29,4 @@ const filter = async (command, apiType) => {
     }
 }
 
-module.exports = filter
+export default filter

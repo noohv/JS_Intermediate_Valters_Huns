@@ -3,12 +3,12 @@
 
     Author: Valters Huns
 */
+import promptSync from 'prompt-sync'
+import list from './list.js'
+import filter from './filter.js'
+import mySort from './sort.js'
 
-const prompt = require("prompt-sync")({sigint:true})
-const list = require("./list")
-const filter = require("./filter")
-const mySort = require("./sort")
-
+const prompt = promptSync({sigint: true})
 const COUNT = 5 // Number of items to fetch ()
 
 // Available APIs

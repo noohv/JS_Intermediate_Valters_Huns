@@ -1,4 +1,4 @@
-const fetchApi = require("./api")
+import fetchApi from './api.js'
 
 // Function for list command
 const list = async (command, apiType) => {
@@ -17,4 +17,4 @@ const list = async (command, apiType) => {
     }
 }
 
-module.exports = list
+export default list

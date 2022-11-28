@@ -1,3 +1,5 @@
+import fetch from 'node-fetch'
+
 // Method to fetch api and return data
 const fetchApi = async (url) => {
     let data = null
@@ -10,4 +12,4 @@ const fetchApi = async (url) => {
     return data
 }
 
-module.exports = fetchApi
+export default fetchApi
