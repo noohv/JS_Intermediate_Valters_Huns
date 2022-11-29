@@ -9,7 +9,7 @@ import filter from './filter.js'
 import mySort from './sort.js'
 
 const prompt = promptSync({sigint: true})
-const COUNT = 5 // Number of items to fetch ()
+const COUNT = 5 // Number of items to fetch
 
 // Available APIs
 let API = {
@@ -20,15 +20,13 @@ let API = {
 // Main APP function
 const app = async () => {
     try {
-        let command
         while(true) {
-            console.log("Command format: [api] [command] *[property] *[value]        * - not required for every command")
+            console.log("\n\nCommand format: [api] [command] *[property] *[value]        * - not required for every command")
             console.log("Available APIs - cat, dog")
             console.log("Please enter a command: list | sort-(asc|desc) | filter ")
             let input =  prompt("> ")
-            command = input.split(" ") // Create array with input words
     
-            const [apiType, cmdType, ...rest] = command // destructure user input command
+            const [apiType, cmdType, ...rest] = input.split(" ") // destructure user input
     
             // User selected API exists
             if(apiType in API) {
@@ -48,8 +46,9 @@ const app = async () => {
                 continue
             }
     
-            let programInput = prompt("Should we continue? (END to stop | ANY other input to continue): ")
-            if(programInput.toLowerCase() === "end") break
+            console.log("\nShould we continue? (END to stop | ANY other input to continue): ")
+            input = prompt("> ")
+            if(input.toLowerCase() === "end") break
         }
     
     } catch (error) {
